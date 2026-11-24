@@ -1,15 +1,12 @@
-name: Deploy site from ZIP
-
+name: Deploy site from ZIP or source
 on:
   push:
     branches: [main]
   workflow_dispatch:
-
 permissions:
   contents: read
   pages: write
   id-token: write
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -18,18 +15,21 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-
-      - name: Unzip site
+      - name: Prepare site
         run: |
-          ZIP_FILE=$(find . -maxdepth 2 -iname "*.zip" | head -n 1)
           mkdir -p site
-          unzip -o "$ZIP_FILE" -d site
-
+          if [ -f site/index.html ]; then
+            echo "Using source site directory"
+          else
+            ZIP_FILE=$(find . -maxdepth 2 -iname "*.zip" | head -n 1)
+            test -n "$ZIP_FILE"
+            unzip -o "$ZIP_FILE" -d site
+          fi
+          test -f site/index.html
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
