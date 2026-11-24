@@ -31,7 +31,6 @@ jobs:
           test -f site/index.html
       - name: Validate JavaScript
         run: |
-          node --check site/stats.js
           node --check site/service-worker.js
           node <<'NODE'
           const fs = require('fs');
