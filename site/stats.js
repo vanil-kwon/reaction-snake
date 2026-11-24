@@ -13,6 +13,7 @@ const QUEUE_KEY = 'rs-analytics-queue-v1';
   let sb = null;
   let channel = null;
   let initPromise = null;
+  let initialized = false;
   let refreshTimer = null;
   let pageViewQueued = false;
   let isTracked = false;
@@ -88,15 +89,17 @@ const QUEUE_KEY = 'rs-analytics-queue-v1';
 
   function updateOnline() {
     if (!channel) return;
-    const state = channel.presenceState();
-    $('globalOnline').textContent = String(Object.keys(state).length);
+    $('globalOnline').textContent = String(Object.keys(channel.presenceState()).length);
   }
 
   async function trackPresence() {
     if (!channel || !navigator.onLine || document.hidden) return;
     try {
-      const result = await channel.track({ visitor: visitorId, online_at: new Date().toISOString() });
-      if (result === 'ok' || result?.status === 'ok') isTracked = true;
+      const result = await channel.track({
+        visitor: visitorId,
+        online_at: new Date().toISOString()
+      });
+      isTracked = result === 'ok' || result?.status === 'ok';
       updateOnline();
     } catch (error) {
       console.warn('Reaction Snake presence:', error);
@@ -104,42 +107,50 @@ const QUEUE_KEY = 'rs-analytics-queue-v1';
   }
 
   async function init() {
-    if (sb || initPromise || !navigator.onLine) return initPromise;
+    if (initialized || initPromise || !navigator.onLine) return initPromise;
     initPromise = (async () => {
-      const { createClient } = await import('https://esm.sh/@supabase/supabase-js@2');
-      sb = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
-        auth: { persistSession: false, autoRefreshToken: false }
-      });
+      if (!sb) {
+        const { createClient } = await import('https://esm.sh/@supabase/supabase-js@2');
+        sb = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
+          auth: { persistSession: false, autoRefreshToken: false }
+        });
+      }
 
       if (!pageViewQueued) {
         pageViewQueued = true;
         enqueue('page_view', currentMode(), 0);
       }
       await flushQueue();
-      await refreshStats();
+      try { await refreshStats(); }
+      catch (error) { console.warn('Reaction Snake stats refresh:', error); }
 
-      channel = sb.channel(PRESENCE_TOPIC, {
-        config: { private: true, presence: { key: visitorId } }
-      });
-      channel
-        .on('presence', { event: 'sync' }, updateOnline)
-        .on('presence', { event: 'join' }, updateOnline)
-        .on('presence', { event: 'leave' }, updateOnline)
-        .subscribe(async state => {
-          if (state === 'SUBSCRIBED') {
-            statusEl.textContent = 'Live';
-            if (!document.hidden) await trackPresence();
-            updateOnline();
-          } else if (state === 'CHANNEL_ERROR' || state === 'TIMED_OUT' || state === 'CLOSED') {
-            isTracked = false;
-            statusEl.textContent = 'Reconnecting…';
-            $('globalOnline').textContent = '—';
-          }
+      if (!channel) {
+        channel = sb.channel(PRESENCE_TOPIC, {
+          config: { private: true, presence: { key: visitorId } }
         });
+        channel
+          .on('presence', { event: 'sync' }, updateOnline)
+          .on('presence', { event: 'join' }, updateOnline)
+          .on('presence', { event: 'leave' }, updateOnline)
+          .subscribe(async state => {
+            if (state === 'SUBSCRIBED') {
+              statusEl.textContent = 'Live';
+              if (!document.hidden) await trackPresence();
+              updateOnline();
+            } else if (state === 'CHANNEL_ERROR' || state === 'TIMED_OUT' || state === 'CLOSED') {
+              isTracked = false;
+              statusEl.textContent = 'Reconnecting…';
+              $('globalOnline').textContent = '—';
+            }
+          });
+      }
 
-      if (!refreshTimer) refreshTimer = setInterval(() => {
-        refreshStats().catch(error => console.warn('Reaction Snake stats refresh:', error));
-      }, 30000);
+      initialized = true;
+      if (!refreshTimer) {
+        refreshTimer = setInterval(() => {
+          refreshStats().catch(error => console.warn('Reaction Snake stats refresh:', error));
+        }, 30000);
+      }
     })().catch(error => {
       initPromise = null;
       statusEl.textContent = navigator.onLine ? 'Stats unavailable' : 'Offline';
@@ -163,12 +174,17 @@ const QUEUE_KEY = 'rs-analytics-queue-v1';
   });
 
   window.addEventListener('online', () => {
-    if (!sb) init();
+    if (!initialized) init();
     else {
       flushQueue();
       refreshStats().catch(() => {});
       trackPresence();
     }
+  });
+
+  window.addEventListener('offline', () => {
+    statusEl.textContent = 'Offline';
+    $('globalOnline').textContent = '—';
   });
 
   document.addEventListener('visibilitychange', () => {
