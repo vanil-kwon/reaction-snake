@@ -1,6 +1,6 @@
 // Add your Supabase Project URL and Publishable key below.
-const SUPABASE_URL = 'PASTE_SUPABASE_PROJECT_URL_HERE';
-const SUPABASE_PUBLISHABLE_KEY = 'PASTE_SUPABASE_PUBLISHABLE_KEY_HERE';
+const SUPABASE_URL = 'https://cdotskwkigbuuvingyym.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_JcE6E_d-bjSaa5lIkLPYpg_fFIvSg4h';
 (async()=>{
  const $=id=>document.getElementById(id),status=$('statsStatus'),visitorKey='rs-analytics-visitor';
  let visitorId='';
