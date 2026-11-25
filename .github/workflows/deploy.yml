@@ -31,15 +31,41 @@ jobs:
           node --check site/service-worker.js
           node --check scripts/validate-release.js
           node scripts/validate-release.js
-  package:
+  build:
     needs: validate
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install free obfuscation tool
+        run: npm install --no-save --no-package-lock javascript-obfuscator@4.1.1
+      - name: Build protected production site
+        run: |
+          node scripts/build-protected.js
+          node scripts/validate-protected.js
+      - name: Upload protected site
+        uses: actions/upload-artifact@v4
+        with:
+          name: reaction-snake-protected-site
+          path: dist/site
+          if-no-files-found: error
+          retention-days: 7
+  package:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: reaction-snake-protected-site
+          path: dist/site
       - name: Build release archive
         run: |
           mkdir -p dist
-          zip -r "dist/reaction-snake-$(cat VERSION).zip" site README.md README.ru.md README.de.md VERSION CHANGELOG.md RELEASE_TESTING.md
+          cd dist/site
+          zip -r ../reaction-snake-$(cat ../../VERSION).zip .
       - name: Upload release archive
         uses: actions/upload-artifact@v4
         with:
@@ -49,7 +75,7 @@ jobs:
           retention-days: 90
   deploy:
     if: github.event_name != 'pull_request'
-    needs: validate
+    needs: build
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -60,22 +86,14 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - name: Prepare site
-        run: |
-          mkdir -p site
-          if [ -f site/index.html ]; then
-            echo "Using source site directory"
-          else
-            ZIP_FILE=$(find . -maxdepth 2 -iname "*.zip" | head -n 1)
-            test -n "$ZIP_FILE"
-            unzip -o "$ZIP_FILE" -d site
-          fi
-          test -f site/index.html
+      - uses: actions/download-artifact@v4
+        with:
+          name: reaction-snake-protected-site
+          path: dist/site
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: dist/site
           name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Wait for artifact indexing
         run: sleep 8
