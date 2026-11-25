@@ -1,19 +1,45 @@
-name: Deploy site from ZIP or source
+name: Validate and deploy Reaction Snake
 on:
   push:
+    branches: [main]
+  pull_request:
     branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
-  actions: read
-  pages: write
-  id-token: write
 concurrency:
   group: github-pages
   cancel-in-progress: false
 jobs:
-  deploy:
+  validate:
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare site
+        run: |
+          mkdir -p site
+          if [ -f site/index.html ]; then
+            echo "Using source site directory"
+          else
+            ZIP_FILE=$(find . -maxdepth 2 -iname "*.zip" | head -n 1)
+            test -n "$ZIP_FILE"
+            unzip -o "$ZIP_FILE" -d site
+          fi
+          test -f site/index.html
+      - name: Validate release
+        run: |
+          node --check site/service-worker.js
+          node --check scripts/validate-release.js
+          node scripts/validate-release.js
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -30,23 +56,6 @@ jobs:
             unzip -o "$ZIP_FILE" -d site
           fi
           test -f site/index.html
-      - name: Validate JavaScript
-        run: |
-          node --check site/service-worker.js
-          node <<'NODE'
-          const fs = require('fs');
-          const { execFileSync } = require('child_process');
-          const html = fs.readFileSync('site/index.html', 'utf8');
-          const scripts = [...html.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi)];
-          if (!scripts.length) throw new Error('No inline game script found');
-          for (const [index, match] of scripts.entries()) {
-            const tempFile = `/tmp/reaction-snake-inline-${index + 1}.js`;
-            fs.writeFileSync(tempFile, match[1]);
-            execFileSync('node', ['--check', tempFile], { stdio: 'inherit' });
-            new Function(match[1]);
-            console.log('Validated inline script', index + 1);
-          }
-          NODE
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
