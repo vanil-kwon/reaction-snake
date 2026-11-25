@@ -14,6 +14,12 @@
   ],
   "icons": [
     {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
       "src": "https://i.ibb.co/vCf5pw4x/file-000000000bc081f496117c284ed93369.png?v=22",
       "sizes": "1024x1024",
       "type": "image/png",
