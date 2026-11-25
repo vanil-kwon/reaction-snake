@@ -51,6 +51,7 @@ assert.ok(assetsMatch, 'Service Worker asset list missing');
 const assets = [...assetsMatch[1].matchAll(/'([^']+)'/g)].map((match) => match[1]);
 for (const asset of assets) {
   if (asset.startsWith('./')) {
+    if (asset === './game.js') continue; // generated only in the protected production build
     const localPath = asset.slice(2).split('?')[0];
     assert.ok(exists(path.join('site', localPath)), 'Missing cached local asset: ' + asset);
   }
