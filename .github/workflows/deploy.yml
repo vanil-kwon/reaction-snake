@@ -31,6 +31,22 @@ jobs:
           node --check site/service-worker.js
           node --check scripts/validate-release.js
           node scripts/validate-release.js
+  package:
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build release archive
+        run: |
+          mkdir -p dist
+          zip -r "dist/reaction-snake-$(cat VERSION).zip" site README.md README.ru.md README.de.md VERSION CHANGELOG.md RELEASE_TESTING.md
+      - name: Upload release archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: Reaction-Snake-1.0.0
+          path: dist/reaction-snake-1.0.0.zip
+          if-no-files-found: error
+          retention-days: 90
   deploy:
     if: github.event_name != 'pull_request'
     needs: validate
