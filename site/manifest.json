@@ -1,1 +1,23 @@
-{"name":"Reaction Snake","short_name":"Snake","start_url":"./","scope":"./","display":"standalone","orientation":"any","background_color":"#09110a","theme_color":"#09110a","description":"A free offline Snake arcade with five game modes.","categories":["games","entertainment"],"icons":[{"src":"https://i.ibb.co/vCf5pw4x/file-000000000bc081f496117c284ed93369.png","sizes":"1024x1024","type":"image/png","purpose":"any"}]}
+{
+  "name": "Reaction Snake",
+  "short_name": "Snake",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#09110a",
+  "theme_color": "#09110a",
+  "description": "A free offline Snake arcade with five game modes.",
+  "categories": [
+    "games",
+    "entertainment"
+  ],
+  "icons": [
+    {
+      "src": "https://i.ibb.co/vCf5pw4x/file-000000000bc081f496117c284ed93369.png?v=21",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
