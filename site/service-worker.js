@@ -1,5 +1,5 @@
 const CACHE='reaction-snake-v26';
-const ASSETS=['./','./index.html','./manifest.json','./icon.svg','./theme.css?v=22','./game.js'];
+const ASSETS=['./','./index.html','./manifest.json','./icon.svg','./theme.css?v=22'];
 const BRAND_ASSETS=['https://i.ibb.co/vCf5pw4x/file-000000000bc081f496117c284ed93369.png?v=22','https://i.ibb.co/N2NXFWn5/110-20261122220841.png'];
 self.addEventListener('install',e=>e.waitUntil((async()=>{const c=await caches.open(CACHE);await c.addAll(ASSETS);await Promise.all(BRAND_ASSETS.map(async url=>{try{const response=await fetch(new Request(url,{mode:'no-cors'}));await c.put(url,response)}catch(_){}}));await self.skipWaiting()})()));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
