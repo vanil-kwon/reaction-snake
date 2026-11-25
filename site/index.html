@@ -142,7 +142,7 @@ en:{title:'Achievements',subtitle:'Challenges, milestones and secret rewards',un
 ['Daily Complete','Complete a Daily challenge'],['Daily Routine','Complete 3 Daily challenges'],['Daily Legend','Complete 7 Daily challenges'],
 ['First Victory','Win a special challenge'],['Triple Crown','Win 5 special challenges'],['Hall of Fame','Win 10 special challenges'],
 ['Collector','Own 5 skins'],['Style Icon','Own 10 skins'],['Full Wardrobe','Own all 16 skins'],
-['Quick Reflexes','Score 15 in Reflex'],['Last One Standing','Complete Survival'],['Perfect Aim','Score 20 in Precision'],['Hidden Potential','Reach 25 points in Daily'],['No Small Feat','Score 40 in Classic']],},
+['Quick Reflexes','Finish a 5-round Reflex test'],['Last One Standing','Complete Survival'],['Perfect Aim','Score 20 in Precision'],['Hidden Potential','Reach 25 points in Daily'],['No Small Feat','Score 40 in Classic']],},
 ru:{title:'Достижения',subtitle:'Испытания, рекорды и секретные награды',unlocked:'открыто',coins:'получено монет',all:'Все',locked:'Закрытые',onlyUnlocked:'Открытые',progress:'Прогресс',secret:'Секретное достижение',reward:'Награда',a:[
 ['Первая искра','Заверши первый забег'],['Начало пути','Заверши 5 забегов'],['Постоянный игрок','Заверши 10 забегов'],['Упорство','Заверши 25 забегов'],['Преданность','Заверши 50 забегов'],['Ветеран аркады','Заверши 100 забегов'],
 ['Перекус','Собери 10 сфер энергии'],['Голодная змейка','Собери 50 сфер энергии'],['Запас энергии','Собери 100 сфер энергии'],['Коллекционер сфер','Собери 250 сфер энергии'],['Живой реактор','Собери 500 сфер энергии'],
@@ -152,7 +152,7 @@ ru:{title:'Достижения',subtitle:'Испытания, рекорды и
 ['Ежедневный вызов','Заверши ежедневное испытание'],['Вошло в привычку','Заверши 3 ежедневных испытания'],['Легенда дня','Заверши 7 ежедневных испытаний'],
 ['Первая победа','Победи в особом испытании'],['Тройная корона','Победи в 5 особых испытаниях'],['Зал славы','Победи в 10 особых испытаниях'],
 ['Коллекционер','Открой 5 скинов'],['Икона стиля','Открой 10 скинов'],['Полный гардероб','Открой все 16 скинов'],
-['Быстрая реакция','Набери 15 в Рефлексе'],['Последний выживший','Заверши Выживание'],['Точный бросок','Набери 20 в Точности'],['Скрытый потенциал','Набери 25 в Ежедневном'],['Не мелочь','Набери 40 в Классике']],},
+['Быстрая реакция','Заверши 5 раундов теста реакции'],['Последний выживший','Заверши Выживание'],['Точный бросок','Набери 20 в Точности'],['Скрытый потенциал','Набери 25 в Ежедневном'],['Не мелочь','Набери 40 в Классике']],},
 de:{title:'Erfolge',subtitle:'Herausforderungen, Meilensteine und geheime Belohnungen',unlocked:'freigeschaltet',coins:'Münzen verdient',all:'Alle',locked:'Offen',onlyUnlocked:'Freigeschaltet',progress:'Fortschritt',secret:'Geheimer Erfolg',reward:'Belohnung',a:[
 ['Erster Funke','Beende deinen ersten Lauf'],['Erste Schritte','Beende 5 Läufe'],['Stammspieler','Beende 10 Läufe'],['Engagiert','Beende 25 Läufe'],['Hingabe','Beende 50 Läufe'],['Arcade-Veteran','Beende 100 Läufe'],
 ['Snackzeit','Sammle 10 Energiekugeln'],['Hungrige Schlange','Sammle 50 Energiekugeln'],['Energiesammler','Sammle 100 Energiekugeln'],['Kugelsammler','Sammle 250 Energiekugeln'],['Lebender Reaktor','Sammle 500 Energiekugeln'],
@@ -162,7 +162,7 @@ de:{title:'Erfolge',subtitle:'Herausforderungen, Meilensteine und geheime Belohn
 ['Tägliche Aufgabe','Schließe eine Tagesherausforderung ab'],['Tägliche Routine','Schließe 3 Tagesherausforderungen ab'],['Tageslegende','Schließe 7 Tagesherausforderungen ab'],
 ['Erster Sieg','Gewinne eine besondere Herausforderung'],['Dreifache Krone','Gewinne 5 besondere Herausforderungen'],['Ruhmeshalle','Gewinne 10 besondere Herausforderungen'],
 ['Sammler','Besitze 5 Skins'],['Stil-Ikone','Besitze 10 Skins'],['Volle Garderobe','Besitze alle 16 Skins'],
-['Schnelle Reflexe','Erreiche 15 in Reflex'],['Letzter Überlebender','Schließe Überleben ab'],['Präzisionswurf','Erreiche 20 in Präzision'],['Verstecktes Talent','Erreiche 25 in Täglich'],['Keine Kleinigkeit','Erreiche 40 in Klassik']]}
+['Schnelle Reflexe','Schließe den 5-Runden-Reflextest ab'],['Letzter Überlebender','Schließe Überleben ab'],['Präzisionswurf','Erreiche 20 in Präzision'],['Verstecktes Talent','Erreiche 25 in Täglich'],['Keine Kleinigkeit','Erreiche 40 in Klassik']]}
 };
 const achievementDefs=[
 ['runs',1,10],['runs',5,15],['runs',10,20],['runs',25,30],['runs',50,50],['runs',100,100],
@@ -173,7 +173,7 @@ const achievementDefs=[
 ['dailyWins',1,20],['dailyWins',3,40],['dailyWins',7,80],
 ['wins',1,25],['wins',5,50],['wins',10,100],
 ['skins',5,20],['skins',10,40],['skins',16,100],
-['reflexBest',15,40],['survivalWins',1,40],['precisionBest',20,50],['dailyBest',25,60],['classicBest',40,60]
+['reflexBest',5,40],['survivalWins',1,40],['precisionBest',20,50],['dailyBest',25,60],['classicBest',40,60]
 ];
 let achievementFilter='all';
 function ensureAchievementData(){if(!data.achievements||typeof data.achievements!=='object')data.achievements={unlocked:{},stats:{runs:0,food:0,moves:0,dailyWins:0,wins:0,survivalWins:0,mode:{}}};const a=data.achievements;if(!a.unlocked)a.unlocked={};if(!a.stats)a.stats={};const st=a.stats;['runs','food','moves','dailyWins','wins','survivalWins'].forEach(k=>{if(!Number.isFinite(st[k]))st[k]=0});if(!st.mode)st.mode={};['classic','reflex','survival','precision','daily'].forEach(k=>{if(!Number.isFinite(st.mode[k]))st.mode[k]=0});['reflexBest','precisionBest','dailyBest','classicBest'].forEach(k=>{if(!Number.isFinite(st[k]))st[k]=0})}
@@ -188,7 +188,7 @@ let precisionMisses=0;
 function drawReflex(){ctx.fillStyle='#071020';ctx.fillRect(0,0,600,600);ctx.strokeStyle='#14223a';ctx.lineWidth=1;ctx.beginPath();for(let i=0;i<=N;i++){const p=i*CELL+.5;ctx.moveTo(p,0);ctx.lineTo(p,600);ctx.moveTo(0,p);ctx.lineTo(600,p)}ctx.stroke();ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='800 34px system-ui';ctx.fillStyle=reflexPhase==='ready'?'#69f5a8':'#edf5ff';const msg=reflexPhase==='ready'?tr('reflexNow'):reflexPhase==='idle'?tr('reflexTap'):tr('reflexWait');ctx.fillText(msg,300,265);ctx.font='700 19px system-ui';ctx.fillStyle='#9aabc5';ctx.fillText(tr('reflexRound')+' '+Math.min(reflexRound+1,5)+' / 5',300,325);if(reflexPhase==='ready'){ctx.strokeStyle='#69f5a8';ctx.lineWidth=8;ctx.beginPath();ctx.arc(300,300,82,0,Math.PI*2);ctx.stroke()}ctx.textAlign='start';ctx.textBaseline='alphabetic'}
 function beginReflex(){reflexPhase='waiting';reflexRound=0;reflexTimes=[];reactionMs=null;score=0;hud();draw();scheduleReflexCue()}
 function scheduleReflexCue(){if(!alive||paused)return;reflexPhase='waiting';reflexDelay=850+Math.random()*2100;reflexTimer=setTimeout(()=>{if(!alive||paused)return;reflexPhase='ready';reflexCueAt=performance.now();if(sound)tone(880,.12,'sine',.05);draw()},reflexDelay)}
-function reflexResponse(){if(!alive||paused)return;if(reflexPhase==='ready'){reflexTimes.push(Math.max(0,performance.now()-reflexCueAt));reflexPhase='feedback'}else if(reflexPhase==='waiting'){reflexTimes.push(1500);reflexPhase='feedback';toast(tr('reflexFalse'))}else return;reflexRound++;score=reflexRound;reactionMs=Math.round(reflexTimes.reduce((a,b)=>a+b,0)/reflexTimes.length);hud();if(sound)tone(600,.07,'triangle',.035);draw();if(reflexRound>=5){setTimeout(()=>{if(alive){reactionMs=Math.round(reflexTimes.reduce((a,b)=>a+b,0)/reflexTimes.length);end(true)}},450)}else{reflexTimer=setTimeout(()=>{if(alive&&!paused)scheduleReflexCue()},650)}}
+function reflexResponse(){if(!alive||paused)return;if(reflexTimer)clearTimeout(reflexTimer);reflexTimer=0;if(reflexPhase==='ready'){reflexTimes.push(Math.max(0,performance.now()-reflexCueAt));reflexPhase='feedback'}else if(reflexPhase==='waiting'){reflexTimes.push(1500);reflexPhase='feedback';toast(tr('reflexFalse'))}else return;reflexRound++;score=reflexRound;reactionMs=Math.round(reflexTimes.reduce((a,b)=>a+b,0)/reflexTimes.length);hud();if(sound)tone(600,.07,'triangle',.035);draw();if(reflexRound>=5){setTimeout(()=>{if(alive){reactionMs=Math.round(reflexTimes.reduce((a,b)=>a+b,0)/reflexTimes.length);end(true)}},450)}else{reflexTimer=setTimeout(()=>{if(alive&&!paused)scheduleReflexCue()},650)}}
 function currentSkin(){return skins.find(s=>s.id===data.skin)||skins[0]}
 function draw(){
 if(mode==='reflex'){drawReflex();return}
