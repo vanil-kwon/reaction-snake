@@ -5,8 +5,8 @@
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#09110a",
-  "theme_color": "#09110a",
+  "background_color": "#07130b",
+  "theme_color": "#07130b",
   "description": "A free offline Snake arcade with five game modes.",
   "categories": [
     "games",
@@ -14,7 +14,7 @@
   ],
   "icons": [
     {
-      "src": "https://i.ibb.co/vCf5pw4x/file-000000000bc081f496117c284ed93369.png?v=21",
+      "src": "https://i.ibb.co/vCf5pw4x/file-000000000bc081f496117c284ed93369.png?v=22",
       "sizes": "1024x1024",
       "type": "image/png",
       "purpose": "any"
