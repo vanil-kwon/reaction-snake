@@ -9,7 +9,7 @@ Ein neonfarbenes Snake-Arcade-Spiel mit Fokus auf schnelle Reaktionen, präzise 
 
 ## Funktionen
 - Fünf Spielmodi: Klassisch, Reflex, Überleben, Präzision und Täglich.
-- 16 freischaltbare Snake-Skins und ein lokales Münzsystem.
+- 16 kosmetische Snake-Skins, 40 Erfolge und ein ausgewogenes lokales Münzsystem.
 - 40 Erfolge, darunter geheime Erfolge.
 - Anzeige der Reaktionszeit, Punktestand und persönlicher Bestwerte.
 - Soundeffekte und prozedurale Hintergrundmusik mit der Web Audio API.
@@ -24,10 +24,18 @@ Ein neonfarbenes Snake-Arcade-Spiel mit Fokus auf schnelle Reaktionen, präzise 
 | Modus | Spielprinzip |
 | --- | --- |
 | Klassisch | Klassische Snake-Regeln. Vermeide Wände und den eigenen Schwanz. |
-| Reflex | Nach jedem eingesammelten Futter wird das Spiel schneller. |
+| Reflex | Fünf Reaktionsrunden: Warte auf das grüne Signal und tippe so schnell wie möglich. Zu frühes Tippen zählt als Fehlstart. |
 | Überleben | Drei Leben; mit steigendem Punktestand erscheinen Hindernisse. Mit 20 Punkten gewinnst du. |
-| Präzision | Ziele laufen nach kurzer Zeit ab – reagiere schnell. |
+| Präzision | Triff 15 Ziele. Jedes läuft nach 4,2 Sekunden ab; drei Fehler beenden den Lauf. |
 | Täglich | Eine tägliche Herausforderung mit festgelegtem Zufalls-Seed. Mit 25 Punkten ist sie abgeschlossen. |
+
+## Münzen und Fortschritt
+
+- Für jede eingesammelte Kugel gibt es 1 Münze.
+- Abschlussbonus: Reflex 8, Überleben 12, Präzision 10 Münzen; Täglich gibt einmal pro lokalem Kalendertag 20 Münzen.
+- Erfolge bringen zusätzliche einmalige Belohnungen.
+- Skins kosten zwischen 45 und 940 Münzen. Sie sind rein kosmetisch und bieten keinen Spielvorteil.
+- Münzen und Freischaltungen bleiben auf dem Gerät. Es gibt keine Käufe, Werbung oder Pay-to-win-Upgrades.
 
 ## Steuerung
 - **Touchscreen:** Wische in die gewünschte Richtung.
