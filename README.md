@@ -7,10 +7,13 @@ An offline-first neon Snake arcade game focused on quick reactions, precise cont
 
 [Русская документация](README.ru.md) · [Deutsche Dokumentation](README.de.md)
 
+## Release 1.0.0
+
+The first public release of the offline-first game. Progress is stored locally in the browser; there is no account, game server, in-game purchase system or game analytics.
+
 ## Features
 - Five modes: Classic, Reflex, Survival, Precision and Daily.
-- 16 cosmetic snake skins, 40 achievements and a paced local coin economy.
-- 40 achievements, including hidden achievements.
+- 16 cosmetic snake skins, 40 achievements (including hidden ones) and a paced local coin economy.
 - Reaction-time display, score tracking and personal records.
 - Sound effects and procedural background music using the Web Audio API.
 - Dark and light themes, independent sound/music controls and reduced visual effects.
@@ -24,7 +27,7 @@ An offline-first neon Snake arcade game focused on quick reactions, precise cont
 | Mode | How it plays |
 | --- | --- |
 | Classic | Standard Snake rules. Avoid the walls and your own tail. |
-| Reflex | Five reaction rounds: wait for the green signal and tap as quickly as possible. Early taps count as false starts. |
+| Reflex | Keep steering the snake. When the red danger cue appears, turn before five movement ticks pass. The game measures each reaction, shows the run average and personal best, awards more points for faster dodges, and costs a life for a missed cue (with a 1,000 ms penalty in the average). |
 | Survival | Three lives; hazards appear as your score grows. Reach 20 points to win. |
 | Precision | Hit 15 targets. Each target expires after 4.2 seconds; three misses end the run. |
 | Daily | A daily seeded challenge. Reach 25 points to complete it. |
