@@ -25,3 +25,52 @@
 @media(orientation:landscape) and (max-height:600px) and (min-width:520px) and (max-width:899px){.app{width:min(100%,980px);grid-template-columns:minmax(0,1.1fr) minmax(250px,.9fr);column-gap:18px;padding-top:8px}.top,.stats,.hint{grid-column:1/-1}.arena-head,.game-wrap,.touch-pad,.controls{grid-column:1}.app>.section-head:not(.arena-head),.modes,.bottom{grid-column:2}.touch-pad{display:grid;grid-row:5}.game-wrap{grid-row:4;padding:6px}.canvas-box{max-width:min(100%,calc(100dvh - 125px))}.controls{grid-row:6}.arena-head,.app>.section-head:not(.arena-head){grid-row:3}.modes{grid-row:4}.bottom{grid-row:5/span 2}.hint{grid-row:7}.mode{min-height:52px;padding:8px 10px}.mode b{width:26px;height:26px;font-size:16px}}
 @media(hover:hover) and (pointer:fine){.btn:hover,.mode:hover{border-color:#82bb6c;filter:brightness(1.08)}.mode:hover{transform:translateY(-1px)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+
+/* FINAL BRAND OVERRIDE — every interface surface uses the green identity */
+:root{color-scheme:dark;--bg:#09110a;--panel:#111d12;--panel2:#19271a;--line:#344b32;--cyan:#a5e887;--blue:#7bc85e;--pink:#a5e887;--brand:#a5e887;--brand2:#70c653;--text:#f1f7ed;--muted:#a2b39b;--dim:#82927b}
+html,body{background:#09110a!important;background-image:radial-gradient(ellipse at 50% -20%,#29452a 0%,#142216 42%,#09110a 82%)!important;color:var(--text)}
+.top{border-color:#a5e88722!important}
+.logo{background:#142315!important;border:1px solid #75b95c!important;box-shadow:0 0 0 4px #a5e88712!important}
+.brand small,.section-head small{color:#a5e887!important}
+.wallet{background:linear-gradient(145deg,#20351e,#142315)!important;border-color:#5d8d49!important;color:#c4f3a9!important}
+.stat,.panel,.setting,.skin,.achievement,.achievement-summary{background:linear-gradient(145deg,#1b2b1b,#111d12)!important;border-color:#344b32!important}
+.stat span,.setting small,.skin small,.achievement small,.achievement-meta,.settings-note{color:#a2b39b!important}
+.game-wrap{background:linear-gradient(135deg,#42653a,#203b22 48%,#172b19)!important;border-color:#79ad5e!important;box-shadow:0 20px 55px #0008,0 0 0 1px #a5e88718!important}
+.canvas-box{background:#09130a!important;border-color:#3d5c35!important}
+.overlay{background:linear-gradient(135deg,#09150bdc,#142616ed)!important}
+.overlay-card,.sheet{background:linear-gradient(150deg,#203421,#111e12)!important;border-color:#5b814a!important}
+.btn,.mode{background:linear-gradient(155deg,#243b24,#172719)!important;border-color:#3d5b38!important;color:#e4f1df!important}
+.btn.primary{background:linear-gradient(135deg,#a5e887,#70c653)!important;border-color:#c4f3a9!important;color:#10200e!important;box-shadow:0 7px 20px #70c65335!important}
+.btn.ghost{background:#172719!important;color:#bfd0b8!important}
+.mode b{background:#294329!important;border-color:#4d7042!important;color:#b9e9a4!important}
+.mode.active{background:linear-gradient(145deg,#31552b,#203d21)!important;border-color:#a5e887!important;color:#d5ffc2!important}
+.mode.active b{background:#3d6833!important;border-color:#a5e887!important;color:#d5ffc2!important}
+.setting select{background:#0d190e!important;border-color:#557747!important;color:#f1f7ed!important}
+.setting input{accent-color:#8fe36b!important}
+.pad-key{background:linear-gradient(155deg,#2b4828,#192d1a)!important;border-color:#5b8749!important;color:#e2f7d9!important}
+.pad-center{background:#34572c!important;color:#c8f6ae!important}
+.skin.selected{border-color:#a5e887!important;box-shadow:0 0 0 2px #a5e88735!important}
+.achievement.unlocked{background:linear-gradient(145deg,#304625,#1b2b1a)!important;border-color:#9acb70!important}
+.achievement-icon{background:#2b4527!important}
+.achievement-progress{background:#354a31!important}
+.achievement-progress i{background:linear-gradient(90deg,#70c653,#c4f3a9)!important}
+.achievement-summary strong{color:#baf29e!important}
+.achievement-filter .btn{background:#1a2b1b!important}
+.toast{background:#203a20!important;border-color:#8fc66e!important;color:#f1f7ed!important}
+.creator-credit{border-color:#344b32!important}
+.creator-credit strong{color:#a5e887!important}
+@media(hover:hover) and (pointer:fine){.btn:hover,.mode:hover,.pad-key:hover{border-color:#a5e887!important;filter:brightness(1.12)}}
+.light-theme{--bg:#edf5e8;--line:#c9ddbd;--text:#1c3219;--muted:#607b58;--dim:#82977a;color-scheme:light;background:#edf5e8!important;background-image:radial-gradient(ellipse at 50% -20%,#d8edcd 0%,#f2f7ee 70%)!important}
+.light-theme .stat,.light-theme .panel,.light-theme .setting,.light-theme .skin,.light-theme .achievement,.light-theme .achievement-summary,.light-theme .mode{background:#fff!important;border-color:#c9ddbd!important}
+.light-theme .game-wrap{background:linear-gradient(135deg,#d2e9c5,#b5d4a7,#dcebd3)!important;border-color:#a5c995!important}
+.light-theme .sheet,.light-theme .overlay-card{background:#fafff6!important;border-color:#c2d9b5!important}
+.light-theme .btn{background:#fff!important;color:#294326!important;border-color:#c3d8b8!important}
+.light-theme .btn.primary{background:#83ce67!important;color:#142510!important}
+.light-theme .mode.active{background:#e4f5dc!important;color:#39732f!important;border-color:#8dc879!important}
+.light-theme .mode b{background:#edf7e8!important;color:#427d35!important}
+.light-theme .wallet{background:#edf7e8!important;color:#427d35!important;border-color:#b9d9aa!important}
+.light-theme .setting select{background:#fff!important;color:#263b24!important}
+.light-theme .toast{background:#f6fff1!important;color:#21351f!important;border-color:#b5d5a7!important}
+.light-theme .pad-key{background:#edf6e8!important;color:#31552b!important;border-color:#c5ddba!important}
+.light-theme .achievement.unlocked{background:#f0f8e9!important;border-color:#a7cc91!important}
