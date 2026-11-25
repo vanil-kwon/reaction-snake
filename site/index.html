@@ -94,8 +94,11 @@ canvas{border-radius:17px}
 @media(min-width:900px){
  .app{width:min(100%,1180px);display:grid;grid-template-columns:minmax(0,1.15fr) minmax(330px,.85fr);column-gap:30px;align-content:start;padding:28px 0 42px}
  .top,.stats,.hint{grid-column:1/-1}
+ .top{grid-row:1}.stats{grid-row:2}.hint{grid-row:7}
  .arena-head,.game-wrap,.controls{grid-column:1}
+ .arena-head{grid-row:3}.game-wrap{grid-row:4}.controls{grid-row:5}
  .app>.section-head:not(.arena-head),.modes,.bottom{grid-column:2}
+ .app>.section-head:not(.arena-head){grid-row:3}.modes{grid-row:4}.bottom{grid-row:5 / span 2}
  .game-wrap{padding:12px}
  .canvas-box{max-width:min(100%,680px);margin:0 auto}
  .controls{max-width:680px;width:100%;margin:14px auto}
@@ -112,8 +115,11 @@ canvas{border-radius:17px}
 @media(orientation:landscape) and (max-height:600px) and (min-width:520px) and (max-width:899px){
  .app{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(250px,.9fr);column-gap:16px;width:min(100%,980px);padding-top:8px}
  .top,.stats,.hint{grid-column:1/-1}
+ .top{grid-row:1}.stats{grid-row:2}.hint{grid-row:7}
  .arena-head,.game-wrap,.touch-pad,.controls{grid-column:1}
+ .arena-head{grid-row:3}.game-wrap{grid-row:4}.touch-pad{grid-row:5}.controls{grid-row:6}
  .app>.section-head:not(.arena-head),.modes,.bottom{grid-column:2}
+ .app>.section-head:not(.arena-head){grid-row:3}.modes{grid-row:4}.bottom{grid-row:5 / span 2}
  .game-wrap{padding:6px}.canvas-box{max-width:min(100%,calc(100dvh - 125px));margin:auto}
  .touch-pad{grid-template-columns:repeat(3,40px);grid-template-rows:repeat(3,34px);gap:4px;margin:5px auto}
  .pad-key{font-size:15px}.controls{margin:6px auto}.controls .btn{min-height:38px;padding:7px}
