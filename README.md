@@ -9,7 +9,7 @@ An offline-first neon Snake arcade game focused on quick reactions, precise cont
 
 ## Features
 - Five modes: Classic, Reflex, Survival, Precision and Daily.
-- 16 unlockable snake skins and a local coin economy.
+- 16 cosmetic snake skins, 40 achievements and a paced local coin economy.
 - 40 achievements, including hidden achievements.
 - Reaction-time display, score tracking and personal records.
 - Sound effects and procedural background music using the Web Audio API.
@@ -24,10 +24,18 @@ An offline-first neon Snake arcade game focused on quick reactions, precise cont
 | Mode | How it plays |
 | --- | --- |
 | Classic | Standard Snake rules. Avoid the walls and your own tail. |
-| Reflex | The game gets faster as you collect food. |
+| Reflex | Five reaction rounds: wait for the green signal and tap as quickly as possible. Early taps count as false starts. |
 | Survival | Three lives; hazards appear as your score grows. Reach 20 points to win. |
-| Precision | Targets are time-limited, so react quickly. |
+| Precision | Hit 15 targets. Each target expires after 4.2 seconds; three misses end the run. |
 | Daily | A daily seeded challenge. Reach 25 points to complete it. |
+
+## Coins and progression
+
+- Earn 1 coin for each food orb collected.
+- Mode completion bonuses: Reflex 8, Survival 12, Precision 10 coins; Daily gives 20 coins once per local day.
+- Achievements grant additional one-time rewards.
+- Skin prices range from 45 to 940 coins. Skins are cosmetic only and do not increase gameplay power.
+- Coins and unlocks stay on the current device. There are no purchases, ads or pay-to-win upgrades.
 
 ## Controls
 - **Touch:** swipe in the direction you want to move.
