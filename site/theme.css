@@ -74,3 +74,69 @@ html,body{background:#09110a!important;background-image:radial-gradient(ellipse 
 .light-theme .toast{background:#f6fff1!important;color:#21351f!important;border-color:#b5d5a7!important}
 .light-theme .pad-key{background:#edf6e8!important;color:#31552b!important;border-color:#c5ddba!important}
 .light-theme .achievement.unlocked{background:#f0f8e9!important;border-color:#a7cc91!important}
+
+
+/* REACTION SNAKE — polished green arcade system v21 */
+:root{
+ --bg:#07130b;--panel:#0d1d12;--panel2:#14291a;--line:#294a2e;
+ --cyan:#a8ef83;--blue:#75c95c;--pink:#d1f5a5;--text:#f1f8ed;--muted:#a0b99a;
+ --brand:#8ddd6b;--radius:20px;color-scheme:dark;
+}
+html,body{background-color:#07130b!important;background-image:radial-gradient(ellipse 90% 42% at 50% -12%,#244b2b 0%,#102718 48%,#07130b 100%)!important}
+body{color:var(--text)}
+.app{isolation:isolate}
+.top{padding:8px 4px 18px;border-bottom:1px solid #294a2e;margin-bottom:16px}
+.brand{min-width:0}
+.logo{width:50px!important;height:50px!important;padding:0!important;overflow:hidden;border-radius:15px!important;background:#102315!important;border:1px solid #79c85d!important;box-shadow:0 0 0 4px #8ddd6b12,0 9px 28px #0007!important}
+.logo img{display:block;width:100%!important;height:100%!important;object-fit:cover!important;border-radius:inherit!important}
+.brand h1{color:#f2faed;letter-spacing:.13em;text-shadow:0 2px 20px #8ddd6b22}
+.brand small{color:#9ac98a!important;letter-spacing:.24em}
+.wallet{background:linear-gradient(145deg,#1b3820,#102416)!important;border:1px solid #507b43!important;color:#c8f2a9!important;box-shadow:inset 0 1px #ffffff12,0 8px 24px #0003}
+.stat,.panel{background:linear-gradient(145deg,#142b19ed,#0c1b11f5)!important;border-color:#315737!important;box-shadow:0 10px 28px #0003,inset 0 1px #ffffff0b}
+.stat{padding:14px 15px}
+.stat span{color:#a9c79f!important;letter-spacing:.17em}
+.stat strong{color:#e9f8df}
+.section-head h2{color:#c6eab6;letter-spacing:.2em}
+.game-wrap{padding:10px!important;border-radius:25px!important;background:linear-gradient(145deg,#497e3d,#1c3d22 48%,#315b2c)!important;border:1px solid #75b85d!important;box-shadow:0 22px 55px #0007,0 0 0 1px #b4ed8a18,0 0 36px #70c65316!important}
+.canvas-box{background:#07130b!important;border:1px solid #91d87535;box-shadow:inset 0 0 35px #0005}
+.overlay{background:#07130bd9!important}
+.overlay-card,.sheet{background:linear-gradient(150deg,#193820f5,#0c1c11f7)!important;border:1px solid #5d9550!important;box-shadow:0 24px 70px #0009,0 0 35px #80d96512!important}
+.btn{background:linear-gradient(180deg,#1b3821,#102416)!important;border:1px solid #426d3b!important;color:#eff9e9!important;box-shadow:inset 0 1px #ffffff12,0 5px 15px #0002;min-height:46px}
+.btn.primary{background:linear-gradient(120deg,#9be879,#60b94b)!important;border:1px solid #b7f49a!important;color:#10220d!important;box-shadow:0 8px 24px #75d15b35,inset 0 1px #ffffff75!important}
+.btn.ghost{background:#142b19!important}
+.mode{background:linear-gradient(155deg,#18331e,#102316)!important;border:1px solid #315638!important;color:#a9c79f!important}
+.mode b{color:#c0e8ae!important}
+.mode.active{background:linear-gradient(145deg,#2d6030,#1b4324)!important;border-color:#9be879!important;color:#eaffdf!important;box-shadow:0 0 0 1px #9be87935,0 8px 22px #4b9c3a26!important}
+.mode.active b{color:#caffad!important}
+.setting,.skin,.achievement{background:linear-gradient(145deg,#17321d,#102316)!important;border-color:#315638!important}
+.setting select{background:#0b1a0f!important;color:#edf8e8!important;border-color:#456d3d!important}
+.skin.selected{border-color:#a5e887!important;box-shadow:0 0 0 2px #a5e88730!important}
+.achievement.unlocked{background:linear-gradient(145deg,#294522,#182f1a)!important;border-color:#9bcf70!important}
+.achievement-icon{background:#2b4b2b!important}
+.achievement-progress{background:#304b31!important}
+.achievement-progress i{background:linear-gradient(90deg,#65bd4d,#c4f3a9)!important}
+.achievement-summary{background:linear-gradient(145deg,#1a3820,#102416)!important;border-color:#456d3d!important}
+.achievement-summary strong{color:#c8f2a9!important}
+.toast{background:#234326!important;border-color:#9cda79!important;color:#f3ffed!important}
+.touch-pad{filter:drop-shadow(0 8px 15px #0003)}
+.pad-key{background:linear-gradient(155deg,#24492a,#142b19)!important;border-color:#5c9250!important;color:#eaffdf!important}
+.pad-center{background:linear-gradient(145deg,#3b7434,#245329)!important;color:#d7ffc0!important}
+.btn:focus-visible,.mode:focus-visible,.pad-key:focus-visible,.setting select:focus-visible{outline:3px solid #b8f39a!important;outline-offset:3px}
+@media(hover:hover) and (pointer:fine){
+ .btn:hover,.mode:hover,.pad-key:hover{transform:translateY(-1px);filter:brightness(1.13);border-color:#a5e887!important}
+}
+.light-theme{background:#f0f7eb!important;background-image:radial-gradient(ellipse at 50% -18%,#d8efcc 0%,#f4f8f0 72%)!important}
+.light-theme .top{border-color:#d1e4c8}
+.light-theme .brand h1{color:#213b1d}
+.light-theme .wallet{background:#e6f4df!important;color:#3d7330!important;border-color:#b9d9a9!important}
+.light-theme .stat,.light-theme .panel,.light-theme .setting,.light-theme .skin,.light-theme .achievement,.light-theme .achievement-summary,.light-theme .mode{background:#fff!important;border-color:#cbdcc3!important}
+.light-theme .stat strong{color:#24421e}
+.light-theme .stat span,.light-theme .section-head h2{color:#55734d!important}
+.light-theme .game-wrap{background:linear-gradient(145deg,#c4e5b6,#8fbe7d,#d8edcc)!important;border-color:#a3cd91!important}
+.light-theme .sheet,.light-theme .overlay-card{background:#fbfff8!important;color:#20391d!important}
+.light-theme .btn{background:#fff!important;color:#31552b!important;border-color:#c4daba!important}
+.light-theme .btn.primary{background:linear-gradient(120deg,#a7e98b,#76ca5d)!important;color:#142510!important}
+.light-theme .mode.active{background:#e5f5dd!important;color:#39732f!important;border-color:#8dc879!important}
+.light-theme .setting select{background:#fff!important;color:#263b24!important}
+@media(max-width:440px){.logo{width:44px!important;height:44px!important}.top{padding-top:4px}.brand h1{letter-spacing:.09em}.stat{padding:11px 9px}}
+@media(prefers-reduced-motion:reduce){.btn,.mode,.pad-key{transition:none!important}}
