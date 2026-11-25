@@ -50,10 +50,10 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          path: site
           name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Wait for artifact indexing
         run: sleep 8
-          path: site
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
