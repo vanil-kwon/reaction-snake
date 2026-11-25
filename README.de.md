@@ -7,10 +7,13 @@ Ein neonfarbenes Snake-Arcade-Spiel mit Fokus auf schnelle Reaktionen, präzise 
 
 [English documentation](README.md) · [Русская документация](README.ru.md)
 
+## Release 1.0.0
+
+Die erste öffentliche Version des Offline-First-Spiels. Der Fortschritt wird lokal im Browser gespeichert; es gibt kein Konto, keinen Spielserver, keine In-App-Käufe und keine Spielanalyse.
+
 ## Funktionen
 - Fünf Spielmodi: Klassisch, Reflex, Überleben, Präzision und Täglich.
-- 16 kosmetische Snake-Skins, 40 Erfolge und ein ausgewogenes lokales Münzsystem.
-- 40 Erfolge, darunter geheime Erfolge.
+- 16 kosmetische Snake-Skins, 40 Erfolge (einschließlich geheimer Erfolge) und ein ausgewogenes lokales Münzsystem.
 - Anzeige der Reaktionszeit, Punktestand und persönlicher Bestwerte.
 - Soundeffekte und prozedurale Hintergrundmusik mit der Web Audio API.
 - Helles und dunkles Design, getrennte Schalter für Sound und Musik sowie reduzierte visuelle Effekte.
@@ -24,7 +27,7 @@ Ein neonfarbenes Snake-Arcade-Spiel mit Fokus auf schnelle Reaktionen, präzise 
 | Modus | Spielprinzip |
 | --- | --- |
 | Klassisch | Klassische Snake-Regeln. Vermeide Wände und den eigenen Schwanz. |
-| Reflex | Fünf Reaktionsrunden: Warte auf das grüne Signal und tippe so schnell wie möglich. Zu frühes Tippen zählt als Fehlstart. |
+| Reflex | Steuere die Schlange wie gewohnt. Sobald das rote Gefahrensignal erscheint, musst du innerhalb von fünf Bewegungstakten abbiegen. Das Spiel misst jede Reaktion, zeigt den Durchschnitt und den persönlichen Bestwert an, belohnt schnelle Ausweichmanöver mit mehr Punkten und kostet bei einem verpassten Signal ein Leben (plus 1.000 ms im Durchschnitt). |
 | Überleben | Drei Leben; mit steigendem Punktestand erscheinen Hindernisse. Mit 20 Punkten gewinnst du. |
 | Präzision | Triff 15 Ziele. Jedes läuft nach 4,2 Sekunden ab; drei Fehler beenden den Lauf. |
 | Täglich | Eine tägliche Herausforderung mit festgelegtem Zufalls-Seed. Mit 25 Punkten ist sie abgeschlossen. |
